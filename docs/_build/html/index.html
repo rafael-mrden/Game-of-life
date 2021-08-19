@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to Project1_Game-of-life’s documentation! &#8212; Project1_Game-of-life 1.2 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-project1-game-of-life-s-documentation">
+<h1>Welcome to Project1_Game-of-life’s documentation!<a class="headerlink" href="#welcome-to-project1-game-of-life-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-gameoflife"></span><p>In this module I wrote several function that generate Conway’s Game of life:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">https://en.wikipedia.org/wiki/Conway’s_Game_of_Life</a></p>
+<p>This was a project for the course “Advanced Scientific Programming in Python”, 23-27 March 2020, Uppsala University.</p>
+<p>Note: When running in Jupyter Notebook, one should add “%matplotlib notebook”.</p>
+<p>KNOWN BUGS:
+- Matrix that has all entries 1 is drawn all in blue. This is the same as the matrix with all entries 0. This is a problem in “matplotlib.pyplot”, and I should check color setting there. It does not affect Game of life much, since such a matrix would die anyway, just one step later.</p>
+<dl class="function">
+<dt id="gameoflife.cross_shaped_matrix">
+<code class="sig-prename descclassname">gameoflife.</code><code class="sig-name descname">cross_shaped_matrix</code><span class="sig-paren">(</span><em class="sig-param">N</em><span class="sig-paren">)</span><a class="headerlink" href="#gameoflife.cross_shaped_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the matrix with 1 on both diagonals, as np.array of shape (N,N).
+Input: N = non-negative integer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gameoflife.evolution">
+<code class="sig-prename descclassname">gameoflife.</code><code class="sig-name descname">evolution</code><span class="sig-paren">(</span><em class="sig-param">matrix</em>, <em class="sig-param">T</em><span class="sig-paren">)</span><a class="headerlink" href="#gameoflife.evolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all generations 0 to T-1, starting from matrix.
+Input: matrix = np.array of shape (N,N) with entries 0 or 1, T = non-negative integer.</p>
+<p>The result is np.array of shape TxNxN, , i.e. a numpy list of T numpy NxN matrices.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gameoflife.evolution_animation">
+<code class="sig-prename descclassname">gameoflife.</code><code class="sig-name descname">evolution_animation</code><span class="sig-paren">(</span><em class="sig-param">matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#gameoflife.evolution_animation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces animation of all generations starting from matrix, forever.
+Input: matrix = np.array of shape (N,N) with entries 0 or 1.</p>
+<p>The function uses nonlocal variables.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gameoflife.evolution_animation_finite">
+<code class="sig-prename descclassname">gameoflife.</code><code class="sig-name descname">evolution_animation_finite</code><span class="sig-paren">(</span><em class="sig-param">matrix</em>, <em class="sig-param">T</em><span class="sig-paren">)</span><a class="headerlink" href="#gameoflife.evolution_animation_finite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces animation of all generations from 0 to T, starting from matrix.
+Input: matrix = np.array of shape (N,N) with entries 0 or 1, T = non-negative integer.</p>
+<p>Note: Since it calculates all T generation in advance, it can take some time for the animation to start.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gameoflife.evolution_graphics">
+<code class="sig-prename descclassname">gameoflife.</code><code class="sig-name descname">evolution_graphics</code><span class="sig-paren">(</span><em class="sig-param">matrix</em>, <em class="sig-param">T</em><span class="sig-paren">)</span><a class="headerlink" href="#gameoflife.evolution_graphics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces images of all generations from 0 to T, starting from matrix.
+The images are stored in folder “graphics_export” under the names “game_of_life%d.png”.</p>
+<p>Input: matrix = np.array of shape (N,N) with entries 0 or 1, T = non-negative integer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gameoflife.next_generation">
+<code class="sig-prename descclassname">gameoflife.</code><code class="sig-name descname">next_generation</code><span class="sig-paren">(</span><em class="sig-param">matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#gameoflife.next_generation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the matrix of the next generation.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gameoflife.next_generation_locally">
+<code class="sig-prename descclassname">gameoflife.</code><code class="sig-name descname">next_generation_locally</code><span class="sig-paren">(</span><em class="sig-param">cell</em>, <em class="sig-param">neighbors</em><span class="sig-paren">)</span><a class="headerlink" href="#gameoflife.next_generation_locally" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 0 or 1 according to survival rules.
+Rules of the game are here.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gameoflife.nr_neighbors_locally">
+<code class="sig-prename descclassname">gameoflife.</code><code class="sig-name descname">nr_neighbors_locally</code><span class="sig-paren">(</span><em class="sig-param">matrix</em>, <em class="sig-param">i</em>, <em class="sig-param">j</em><span class="sig-paren">)</span><a class="headerlink" href="#gameoflife.nr_neighbors_locally" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of neighbors of (i,j) in matrix.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gameoflife.submatrix">
+<code class="sig-prename descclassname">gameoflife.</code><code class="sig-name descname">submatrix</code><span class="sig-paren">(</span><em class="sig-param">matrix</em>, <em class="sig-param">i</em>, <em class="sig-param">j</em><span class="sig-paren">)</span><a class="headerlink" href="#gameoflife.submatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the neigbourhood of (i,j) in matrix, as a submatrix.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Project1_Game-of-life</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Rafael Mrden.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
