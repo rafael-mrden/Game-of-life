@@ -1,4 +1,4 @@
-# Game-of-life
+# Game of life
 
 My implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) - the final assignment for the PhD course [*Advanced Scientific Programming in Python*](https://github.com/uu-python) I took at Uppsala University, 23-27 March 2020.
 
